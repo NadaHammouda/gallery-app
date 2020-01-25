@@ -3,34 +3,40 @@ import styled from "styled-components";
 
 
 const StyledDiv = styled.div`
-  margin-top: 3%;`;
+  margin-top: 3%;
+  &::after {
+    content: "";
+    clear: both;
+    display: table;}`;
 
 const StyledUlLeft = styled.ul`
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
   background-color: #fff;
   width: 30%;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  display: inline;
   float: left;
-  margin-left: 10%;`;
+  margin-left: 10%;
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;`;
 
 
 const StyledUlRight = styled.ul`
   list-style-type: none;
-  margin: 0;
-  padding: 0;
   overflow: hidden;
   background-color: #fff;
   width: 30%;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  display: inline;
   float: right;
-  margin-right: 10%;`;
+  margin-right: 10%;
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;`;
 
 const StyledLi = styled.li`
   float: center;`;

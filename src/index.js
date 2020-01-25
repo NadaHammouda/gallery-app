@@ -5,20 +5,23 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware  from 'redux-saga';
-import rootSaga from './sagas/index';
-import Photos from './features/PhotoSlice';
+// import rootSaga from './sagas/index';
+// import Photos from './features/PhotoSlice';
 
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
-const store = configureStore({
-reducer: Photos,
-middleware: [
-  ...getDefaultMiddleware(),
-  sagaMiddleware
-]
-})
+// const store = configureStore({
+// reducer: Photos,
+// middleware: [
+//   ...getDefaultMiddleware(),
+//   sagaMiddleware
+// ]
+// })
 
-sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(rootSaga);
+import configureAppStore from './redux/Store';
+
+const store = configureAppStore();
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
