@@ -4,17 +4,13 @@ import Image from './Image'
 import { useSelector } from 'react-redux';
 
 const Column = styled.div`
-  float: left;
-  min-width: 230px;
-  padding: 5px;
 
   @media screen and (max-width: 767px) {
       width: 100%;}`
 
 const Row = styled.div`
   width: 70%;
-  float: right;
-  max-width: 770px;
+
   &::after {
     content: "";
     clear: both;
@@ -27,8 +23,8 @@ function ImageGrid(){
   return (
     <Row>
       {photos.length > 0  ? photos.map(photo => {
-        return <Column key={photo.id}><Image photo={photo}/></Column>
-      }): <h1>no images</h1>}
+        return <Image key={photo.id} photo={photo}/>
+      }): <h1>No images found.</h1>}
     </Row>
   )
 }

@@ -8,16 +8,18 @@ const photos = createSlice({
     error: '',
     currentPage: 1,
     photosPerPage: 9,
-    indexofLastPost:9,
+    indexofLastPost:0,
     indexofFirstPost: 0,
     currentPagePhotos: [],
-    totalPosts: 0
+    totalPhotos: 0,
+    singlePhoto: "",
+    searchPhotos: []
   },
   reducers: {
     fetchPhotos: state => state,
     fetchPhotosAsync: (state, action) => {
       state.gallery = action.payload;
-      state.totalPosts = state.gallery.length
+      state.totalPhotos = state.gallery.length
       photos.caseReducers.changePagePhotos(state);
     },
     fetchFailed: (state, action) => {
@@ -30,7 +32,7 @@ const photos = createSlice({
       }
     },
     nextPage: state => {
-      if(state.currentPage <= Math.ceil(state.totalPosts/state.photosPerPage)){
+      if(state.currentPage <= Math.ceil(state.totalPhotos/state.photosPerPage)){
         state.currentPage++;
         photos.caseReducers.changePagePhotos(state);
       }
@@ -44,6 +46,17 @@ const photos = createSlice({
       state.indexofFirstPost = state.indexofLastPost - state.photosPerPage;
       state.currentPagePhotos = state.gallery.slice(state.indexofFirstPost,state.indexofLastPost);
       window.scrollTo(0, 0);
+    },
+    getSinglePhoto: state => state,
+    getSinglePhotoAsync: (state, action) => {
+      state.singlePhoto = action.payload
+    },
+    searchPhotos: state => state,
+    searchPhotosAsync: (state, action) => {
+      state.gallery = action.payload
+      state.totalPhotos = state.gallery.length
+      photos.caseReducers.changePagePhotos(state);
+
     }
   }
 })
@@ -55,7 +68,11 @@ export const {
   previousPage,
   nextPage,
   changeCurrentPage,
-  changePagePhotos
+  changePagePhotos,
+  getSinglePhoto,
+  getSinglePhotoAsync,
+  searchPhotos,
+  searchPhotosAsync
 } = photos.actions
 
 export default photos.reducer
