@@ -10,7 +10,7 @@ const Column = styled.div`
 
 const Row = styled.div`
   width: 70%;
-
+  margin: 0;
   &::after {
     content: "";
     clear: both;

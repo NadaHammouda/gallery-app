@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 const ImageContainer = styled.div`
   padding: 5px;
-  margin-bottom: 10px;
   float: left;
 
   width: 50%

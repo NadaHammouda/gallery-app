@@ -1,65 +1,65 @@
 import React from 'react';
 import styled from "styled-components";
-
+import listIcon from '../imgs/list.png';
 
 const StyledDiv = styled.div`
-  margin-top: 3%;
-  &::after {
-    content: "";
-    clear: both;
-    display: table;}`;
+  display: flex;
+  flex-direction: inherit;
+  width: 92%;
+  max-width: 1100px;
+  margin: auto;
+  padding-top: 40px;
 
-const StyledUlLeft = styled.ul`
-  list-style-type: none;
-  overflow: hidden;
-  background-color: #fff;
-  width: 30%;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  float: left;
-  margin-left: 10%;
+  @media screen and (max-width: 950px){
+    width: auto;
+    padding: 2% 2.5%;
+    max-height: 100%;
+    background-color: #fff;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    }`;
+
+const Common = styled.div`
+  width: 43%;
   align-self: flex-end;
   display: flex;
   justify-content: space-between;
-  align-items: center;`;
+  align-items: center;
+  border-top: solid 1px #000;
+  border-bottom: solid 1px #000;
+  padding: 0px 15px;
 
+  @media screen and (max-width: 950px){
+    display: none;}`
 
-const StyledUlRight = styled.ul`
-  list-style-type: none;
-  overflow: hidden;
-  background-color: #fff;
-  width: 30%;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  float: right;
-  margin-right: 10%;
-  align-self: flex-end;
+const StyledUl= styled.ul`
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
+  list-style-type: none;
   justify-content: space-between;
   align-items: center;`;
-
-const StyledLi = styled.li`
-  float: center;`;
-
 
 const Dropbtn = styled.div`
-  display: inline-block;
-  color: black;
+  position: relative;
+  padding: 12px 7px;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
-  font-weight: 900;
+  font-weight: bold;
   cursor: pointer;`;
 
 const DropDownContent = styled.div`
   display: none;
   position: absolute;
   background-color: #fff;
-  min-width: 120px;
+  min-width: 100px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;`;
 
-const DropDownLi = styled(StyledLi)`
+const DropDownLi = styled.li`
   display: inline-block;
   &:hover ${DropDownContent} {
     display: block;
@@ -72,56 +72,67 @@ const SubA = styled.a`
   display: block;
   text-align: left;
   border-top: 1px solid black;
-  font-weight: 900;`;
+  font-weight: bold;`;
 
 const StyledA = styled.a`
   color: black;
   text-decoration: none;
   text-align: center;
   font-weight: 900;
-  font-size: 35px;
-  margin-left: 3%;
+  font-size: 25px;
   cursor: pointer;`;
 
-
+const StyledIcon = styled.img`
+  display: none;
+  &:hover {
+    cursor: pointer;
+  }
+  @media screen and (max-width: 950px){
+    display: block;
+    width: 4%;
+    height: 4%;
+    text-align: right;}`
 
 export default function Header() {
 
 
   return (
     <StyledDiv>
-    <StyledUlLeft>
-      <DropDownLi>
-        <Dropbtn>DROPDOWN</Dropbtn>
-        <DropDownContent>
-          <SubA href="#">LINK 1</SubA>
-          <SubA href="#">LINK 2</SubA>
-          <SubA href="#">LINK 3</SubA>
-        </DropDownContent>
-      </DropDownLi>
+      <Common>
+        <StyledUl>
+          <DropDownLi>
+            <Dropbtn>DROPDOWN</Dropbtn>
+            <DropDownContent>
+              <SubA href="#">LINK 1</SubA>
+              <SubA href="#">LINK 2</SubA>
+              <SubA href="#">LINK 3</SubA>
+            </DropDownContent>
+          </DropDownLi>
 
-      <DropDownLi>
-        <Dropbtn>DROPDOWN</Dropbtn>
-        <DropDownContent>
-          <SubA href="#">LINK 1</SubA>
-          <SubA href="#">LINK 2</SubA>
-          <SubA href="#">LINK 3</SubA>
-        </DropDownContent>
-      </DropDownLi>
+          <DropDownLi>
+            <Dropbtn>DROPDOWN</Dropbtn>
+            <DropDownContent>
+              <SubA href="#">LINK 1</SubA>
+              <SubA href="#">LINK 2</SubA>
+              <SubA href="#">LINK 3</SubA>
+            </DropDownContent>
+          </DropDownLi>
 
-      <DropDownLi>
-        <Dropbtn>DROPDOWN</Dropbtn>
-        <DropDownContent>
-          <SubA href="#">LINK 1</SubA>
-          <SubA href="#">LINK 2</SubA>
-          <SubA href="#">LINK 3</SubA>
-        </DropDownContent>
-      </DropDownLi>
-    </StyledUlLeft>
+          <DropDownLi>
+            <Dropbtn>DROPDOWN</Dropbtn>
+            <DropDownContent>
+              <SubA href="#">LINK 1</SubA>
+              <SubA href="#">LINK 2</SubA>
+              <SubA href="#">LINK 3</SubA>
+            </DropDownContent>
+          </DropDownLi>
+        </StyledUl>
+      </Common>
 
-    <StyledA href="#">GALLERY</StyledA>
-
-    <StyledUlRight>
+    <StyledA href="#">GALLERY 360</StyledA>
+    <StyledIcon src={listIcon}></StyledIcon>
+    <Common>
+    <StyledUl>
       <DropDownLi>
         <Dropbtn>DROPDOWN</Dropbtn>
         <DropDownContent>
@@ -148,8 +159,8 @@ export default function Header() {
           <SubA href="#">LINK 3</SubA>
         </DropDownContent>
       </DropDownLi>
-    </StyledUlRight>
-
+    </StyledUl>
+    </Common>
     </StyledDiv>
   );
 

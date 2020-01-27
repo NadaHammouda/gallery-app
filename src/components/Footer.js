@@ -84,7 +84,7 @@ export default function Footer() {
   return (
     <MainDiv>
       <Container>
-        <LeftDiv><StyledH1>Gallery</StyledH1></LeftDiv>
+        <LeftDiv><StyledH1>Gallery 360</StyledH1></LeftDiv>
         <CenterDiv>@Copyright <StyledA href="#">Nada.</StyledA> All Rights Reserved.</CenterDiv>
         <RightDiv>
           <StyledUl>
