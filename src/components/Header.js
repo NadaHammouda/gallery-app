@@ -145,9 +145,8 @@ export default function Header() {
       <DropDownLi>
         <Dropbtn>GALLERY</Dropbtn>
         <DropDownContent>
-          <SubA href="#">LINK 1</SubA>
-          <SubA href="#">LINK 2</SubA>
-          <SubA href="#">LINK 3</SubA>
+          <SubA href="/">PHOTOS</SubA>
+          <SubA href="/categories">MORE</SubA>
         </DropDownContent>
       </DropDownLi>
 

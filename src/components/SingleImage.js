@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
   flex-direction: row;
   width: 92.5%;
   max-width: 1100px;
-  margin: 15px auto 50px;
+  margin: 40px auto 70px;
   &::after {
     content: "";
     clear: both;
@@ -36,13 +36,18 @@ const Description = styled.div`
     padding-left: 10px;
     width: 100%;}`
 
-
+const StyledA = styled.a`
+  text-decoration: none;
+  border: 1px #000;
+  color: #000;
+  text-size: 20px;
+  margin-left: 10px;`
 
 const SingleImage = ({params}) => {
 
-  const photo = useSelector(state => state.singlePhoto);
+  const photo = useSelector(state => state.Photos.singlePhoto);
   const dispatch = useDispatch();
-
+  console.log(photo)
   useEffect(() => {
     dispatch(getSinglePhoto(params.id));
     },[])
@@ -54,7 +59,11 @@ const SingleImage = ({params}) => {
       </ImageContainer>
       <Description>
         <h2>{photo.author}</h2>
-        <h5>Some description.</h5>
+        <h3>Categories:
+        {photo ? photo.categories.map(category => {
+          return <StyledA key={category} href={`category/${category}`}>{category}  </StyledA>
+        }) : <div></div>}
+        </h3>
       </Description>
     </StyledDiv>
   )

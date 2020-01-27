@@ -1,17 +1,16 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
-import { searchPhotos, searchPhotosAsync, fetchFailed } from '../features/PhotoSlice';
+import { searchByCategory, searchByCategoryAsync, fetchFailed } from '../features/PhotoSlice';
 
 function* fetchAsync(action){
-  const filter = action.payload.toLowerCase();
-
+  const filter = action.payload
   try {
     const response = yield call(fetch, 'http://localhost:3001/gallery');
     const responseBody = yield response.json();
     const filteredResponse = responseBody.filter(photo => {
-      const lc = photo.author.toLowerCase()
+      const lc = photo.categories
       return lc.includes(filter)
     })
-    yield put(searchPhotosAsync(filteredResponse));
+    yield put(searchByCategoryAsync(filteredResponse));
   } catch (e) {
       yield put(fetchFailed(e));
       return;
@@ -20,6 +19,6 @@ function* fetchAsync(action){
 }
 
 
-export default function* watchsearchPhotos(){
-  yield takeLatest(searchPhotos, fetchAsync);
+export default function* watchsearchCategory(){
+  yield takeLatest(searchByCategory, fetchAsync);
 }

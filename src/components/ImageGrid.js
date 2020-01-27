@@ -18,8 +18,8 @@ const Row = styled.div`
 
 function ImageGrid(){
 
-  const photos = useSelector(state => state.currentPagePhotos);
-
+  const photos = useSelector(state => state.Photos.currentPagePhotos);
+  console.log(photos)
   return (
     <Row>
       {photos.length > 0  ? photos.map(photo => {

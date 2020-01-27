@@ -9,6 +9,12 @@ const Container = styled.div`
   width: 100%;
   direction: ltr;
   color: white;
+  position: absolute;
+    left: 0;
+    overflow:hidden;
+    &::after {
+      height: 60px}
+
   `
 
 const LeftDiv = styled.div`

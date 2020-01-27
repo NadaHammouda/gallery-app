@@ -36,9 +36,9 @@ function Pagination() {
 
   const pageNumbers = [];
   const dispatch = useDispatch();
-  const activePage = useSelector(state => state.currentPage);
-  const photosPerPage = useSelector(state => state.photosPerPage);
-  const totalPhotos = useSelector(state => state.totalPhotos)
+  const activePage = useSelector(state => state.Photos.currentPage);
+  const photosPerPage = useSelector(state => state.Photos.photosPerPage);
+  const totalPhotos = useSelector(state => state.Photos.totalPhotos)
 
   for(let i=1; i<=Math.ceil(totalPhotos/photosPerPage); i++) {
     pageNumbers.push(i);

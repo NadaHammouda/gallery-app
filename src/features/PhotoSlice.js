@@ -57,6 +57,12 @@ const photos = createSlice({
       state.totalPhotos = state.gallery.length
       photos.caseReducers.changePagePhotos(state);
 
+    },
+    searchByCategory: state => state,
+    searchByCategoryAsync: (state, action) => {
+      state.gallery = action.payload
+      state.totalPhotos = state.gallery.length
+      photos.caseReducers.changePagePhotos(state);
     }
   }
 })
@@ -72,7 +78,9 @@ export const {
   getSinglePhoto,
   getSinglePhotoAsync,
   searchPhotos,
-  searchPhotosAsync
+  searchPhotosAsync,
+  searchByCategory,
+  searchByCategoryAsync
 } = photos.actions
 
 export default photos.reducer
