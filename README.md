@@ -6,7 +6,7 @@ The images used in this project were obtained from [https://picsum.photos/] to c
 From the Gallery dropdown menu you can navigate to the the main gallery where you can view all photos available 
 or to the categories page containing all the available categories.
 
-You can also search the images avaialbe and the categories available.
+You can search the images available and the categories available.
 
 You can also select a single image to view more information about it.
 
