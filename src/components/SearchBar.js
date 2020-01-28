@@ -75,14 +75,15 @@ export default function SearchBar() {
 
   const search = e => {
     e.preventDefault();
-    browserHistory.push(`?${searchTerm}`)
+    console.log(browserHistory.getCurrentLocation().pathname)
+    browserHistory.push(`${browserHistory.getCurrentLocation().pathname}?${searchTerm}`)
     dispatch(searchPhotos(searchTerm))
   }
   return (
     <StyledDiv>
       <StyledForm>
         <ButtonsContainer>
-          <Btn1 href="/">Clear</Btn1>
+          <Btn1 href={browserHistory.getCurrentLocation().pathname}>Clear</Btn1>
           <Btn2 onClick={search}>Apply</Btn2>
         </ButtonsContainer>
         <StyledInput type="text" placeholder="Search" value={searchTerm} onChange={handleChange} />

@@ -50,7 +50,7 @@ const StyledA = styled.h5`
     margin-top: 15px;}`;
 
 const StyledInput = styled.input`
-  width: 100%;
+  width: 97%;
   padding: 5px;
   border: solid 2px #000;
   height: 80%;
@@ -76,7 +76,7 @@ const DropDownLi = styled.a`
   cursor: pointer;
   color: white;
   @media screen and (max-width: 600px){
-    font-size: 11px}`
+    font-size: 9px}`
 
 const StyledA1 = styled.a`
   text-decoration:none;
@@ -84,8 +84,16 @@ const StyledA1 = styled.a`
   font-size: 20px;
   margin-bottom: 10px`
 
-const StyledDiv2 = styled.div`
-  height: 50%`
+const StyledA2 = styled.h5`
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 4.1px;
+  text-transform: uppercaser;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  @media screen and (max-width: 767px){
+    font-weight: normal;}`;
+
 
 export default function Category() {
 
@@ -98,7 +106,6 @@ export default function Category() {
     display: ${active ? 'flex': 'none'};
     justify-content: center;
     margin-top: 10px;
-    margin-left: 10px;
     background-color: #000;
     color: #fff;
     width: 100%`
@@ -110,6 +117,19 @@ export default function Category() {
     justify-content: space-between;
     margin-left: 10px;
     `
+  const StyledAll = styled.a`
+    display: ${found ? 'none': 'flex'};
+    border: solid 2px #000;
+    width: 30%;
+    height: 150px;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 10px;
+    text-decoration:none;
+    color: black;
+    @media screen and (max-width: 767px){
+      padding -top: 3px;
+      width: 100%}`
 
   const dispatch = useDispatch();
   const categories = useSelector(state => state.Category.categories);
@@ -117,8 +137,6 @@ export default function Category() {
 
   const searchResult = useSelector(state => state.Category.searchCategory);
 
-  console.log(active)
-  console.log(found)
   const handleChange = e => {
     setSearchTerm(e.target.value)
   }
@@ -136,8 +154,8 @@ export default function Category() {
   return (
     <StyledDiv>
       <StyledDiv1>
-        <StyledFind>
-          <StyledA onClick={()=> setActive(!active)}>FIND CATEGORIES HERE</StyledA>
+        <StyledFind onClick={()=> setActive(!active)}>
+          <StyledA>FIND CATEGORIES HERE</StyledA>
         </StyledFind>
         <StyledForm onSubmit={search}>
           <StyledInput type="text" placeholder="SEARCH" value={searchTerm} onChange={handleChange} />
@@ -155,6 +173,7 @@ export default function Category() {
           })
            :<h1>No Results Found</h1>}
       </SearchContet>
+      <StyledAll href="/"><StyledA2>ALL PHOTOS</StyledA2></StyledAll>
 
     </StyledDiv>
   )

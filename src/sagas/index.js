@@ -11,7 +11,7 @@ export default function* rootSaga() {
   yield all([
     watchFetchPhotos(),
     watchgetSinglePhoto(),
-    watchsearchPhotos(),
+    // watchsearchPhotos(),
     watchFetchCategories(),
     watchsearchCategory(),
     watchsearchCategoryName()]);

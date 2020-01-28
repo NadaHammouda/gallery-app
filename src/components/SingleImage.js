@@ -2,6 +2,8 @@ import React, {  useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector,  useDispatch } from 'react-redux';
 import { getSinglePhoto } from '../features/PhotoSlice';
+import DirectoryName from './DirectoryName';
+
 
 const StyledDiv = styled.div`
   display: flex;
@@ -47,12 +49,16 @@ const SingleImage = ({params}) => {
 
   const photo = useSelector(state => state.Photos.singlePhoto);
   const dispatch = useDispatch();
-  console.log(photo)
+
   useEffect(() => {
     dispatch(getSinglePhoto(params.id));
     },[])
 
   return (
+    <div>
+      {photo ?
+         <DirectoryName directory={["ALL PHOTOS",photo.author.toUpperCase()]}/> :
+         <h1>loading</h1>}
     <StyledDiv>
       <ImageContainer>
         <StyledImage alt="Large" src={photo.download_url}></StyledImage>
@@ -66,6 +72,7 @@ const SingleImage = ({params}) => {
         </h3>
       </Description>
     </StyledDiv>
+    </div>
   )
 }
 

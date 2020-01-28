@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { act } from 'react-dom/test-utils';
 
 
 const photos = createSlice({
@@ -51,7 +52,14 @@ const photos = createSlice({
     getSinglePhotoAsync: (state, action) => {
       state.singlePhoto = action.payload
     },
-    searchPhotos: state => state,
+    searchPhotos: (state, action)  => {
+      const filter = action.payload.toLowerCase();
+      state.gallery =  state.gallery.filter(photo => {
+            const lc = photo.author.toLowerCase()
+            return lc.includes(filter)
+          })
+      state.totalPhotos = state.gallery.length
+      photos.caseReducers.changePagePhotos(state);},
     searchPhotosAsync: (state, action) => {
       state.gallery = action.payload
       state.totalPhotos = state.gallery.length

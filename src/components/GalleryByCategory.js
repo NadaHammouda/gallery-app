@@ -1,10 +1,11 @@
 import React, {  useEffect } from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { searchByCategory } from '../features/PhotoSlice';
 import ImageGrid from './ImageGrid';
 import Pagination from './Pagination';
 import SearchBar from './SearchBar';
+import DirectoryName from './DirectoryName';
 
 const GalleryContainer = styled.div`
   width: 90%;
@@ -28,7 +29,7 @@ const GalleryByCategory = ({params}) => {
 
   return (
     <div>
-
+      <DirectoryName directory={["CATEGORY",params.category.toUpperCase()]} />
       <GalleryContainer>
         <SearchBar />
         <ImageGrid />

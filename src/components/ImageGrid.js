@@ -3,11 +3,6 @@ import styled from 'styled-components'
 import Image from './Image'
 import { useSelector } from 'react-redux';
 
-const Column = styled.div`
-
-  @media screen and (max-width: 767px) {
-      width: 100%;}`
-
 const Row = styled.div`
   width: 70%;
   margin: 0;
@@ -19,7 +14,6 @@ const Row = styled.div`
 function ImageGrid(){
 
   const photos = useSelector(state => state.Photos.currentPagePhotos);
-  console.log(photos)
   return (
     <Row>
       {photos.length > 0  ? photos.map(photo => {

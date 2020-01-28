@@ -10,21 +10,16 @@ import GalleryByCategory from './components/GalleryByCategory';
 
 
 const StyledDiv = styled.div`
-  margin: auto;
-  padding: 25px;
-
-  `
-
-const StyledDiv1 = styled.div`
-  margin-bottom: -60px;
-  min-height: 100%;
-  &::after {
-    content: "";
-    clear: both;
-    display: table;}`
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 60px;`
 
 const MainDiv = styled.div`
   height: 100%`
+
+
 function App() {
   return (
     <MainDiv>
